@@ -6,7 +6,12 @@
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -100,11 +105,27 @@ public class Funcionario implements Serializable {
     public void setEndereco_do_funcionario(Endereco endereco_do_funcionario) {
         this.endereco_do_funcionario = endereco_do_funcionario;
     }
+
+    @Column (name = "nick")
     private String nick;
+    @Column (name = "nm_nome")
     private String nome;
+    @Column (name = "ds_senha")
     private String senha;
+    @Column
     private Funcao funcao_do_funcionario;
+    @Column(name = "funcao_cd_funcao")
+    @OneToMany(targetEntity = Funcionario.class, fetch = FetchType.EAGER)
     private Endereco endereco_do_funcionario;
+    @Column(name = "endereco_cd_endereco")
+    @OneToMany(targetEntity = Funcionario.class, fetch = FetchType.EAGER)
     private Character tp_visivel;
     
+     //cd_funcionario integer NOT NULL,
+ // funcao_cd_funcao integer,//
+  //endereco_cd_endereco integer,//
+  //nm_funcionario character varying(100),
+ // ds_senha character varying(20),
+ // nick character varying(30),
+ // tp_invisivel character(1),//
 }

@@ -6,7 +6,6 @@
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -69,6 +68,6 @@ public class Funcao implements Serializable {
  private String descricao;
  private Character tp_visivel;
  @Column(name = "funcao_cd_funcao")
- @OneToMany(targetEntity = Funcionario.class , cascade =CascadeType.REMOVE , fetch = FetchType.EAGER)
+ @OneToMany(targetEntity = Funcionario.class, fetch = FetchType.EAGER)
  private Funcao funcaoDoFuncionario;
 }
