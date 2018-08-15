@@ -5,13 +5,20 @@
  */
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author User
  */
-public class OrdemServico {
+@Entity
+@Table (name = "ordemservico")
+public class OrdemServico implements Serializable {
 
     /**
      * @return the data
@@ -68,11 +75,18 @@ public class OrdemServico {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    @Column (name = "cd_ordemservico")
+    @Id
     private Date data;
     private double valorTotal;
     private Funcionario funcionario;
     private Cliente cliente;
     
-    
+  //cd_ordem_servico integer NOT NULL,
+  //funcionario_cd_funcionario integer NOT NULL,
+  //cliente_cd_cliente integer,
+  //dt_ordem_servico date,
+  //vl_total numeric(100,2),
+  //bool_fechado boolean,
     
 }

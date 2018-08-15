@@ -151,5 +151,6 @@ public class Cliente implements Serializable {
    @Column(name = "endereco_cd_endereco")
    @OneToOne(targetEntity = Endereco.class , cascade =CascadeType.REMOVE , fetch = FetchType.EAGER)
    private Endereco enderecoDoCliente;
-  
+   
+   
 }

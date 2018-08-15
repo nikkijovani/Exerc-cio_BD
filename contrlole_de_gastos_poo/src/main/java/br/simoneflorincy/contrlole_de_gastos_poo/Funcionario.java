@@ -5,11 +5,31 @@
  */
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author User
  */
-public class Funcionario {
+@Entity
+@Table (name = "funcionario")
+public class Funcionario implements Serializable {
+
+    /**
+     * @return the tp_visivel
+     */
+    public Character getTp_visivel() {
+        return tp_visivel;
+    }
+
+    /**
+     * @param tp_visivel the tp_visivel to set
+     */
+    public void setTp_visivel(Character tp_visivel) {
+        this.tp_visivel = tp_visivel;
+    }
 
     /**
      * @return the nick
@@ -85,5 +105,6 @@ public class Funcionario {
     private String senha;
     private Funcao funcao_do_funcionario;
     private Endereco endereco_do_funcionario;
+    private Character tp_visivel;
     
 }

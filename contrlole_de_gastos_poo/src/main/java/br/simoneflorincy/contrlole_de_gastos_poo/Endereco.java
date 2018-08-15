@@ -6,11 +6,20 @@
 package br.simoneflorincy.contrlole_de_gastos_poo;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author User
  */
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
     /**
@@ -124,12 +133,24 @@ public class Endereco implements Serializable {
     public void setTelefone2(String telefone2) {
         this.telefone2 = telefone2;
     }
+    @Column (name = "cd_endereco")
+    @Id
     private String bairro;
+    @Column(name = "nm_bairro")
     private String cep;
+    @Column(name = "ds_cep")
     private String cidade;
+    @Column(name = "nm_cidade")
     private String complemento;
+    @Column(name = "ds_complemento")
     private String numero;
+    @Column(name = "nr_numero")
     private String rua;
+    @Column(name = "nm_rua")
     private String telefone1;
+    @Column(name = "nr_telefone1")
     private String telefone2;
+    @Column(name = "endereco_cd_endereco")
+    @OneToOne(targetEntity = Funcionario.class, cascade =CascadeType.REMOVE , fetch = FetchType.EAGER )
+    private Endereco enderecoDoFuncionario;
 }
